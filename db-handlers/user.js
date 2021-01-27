@@ -19,7 +19,7 @@ const find = async (cond) => {
       });
     return user;
   } catch (err) {
-    console.log("find-user", err);
+    console.log("find-user-err", err);
     return user;
   }
 };
@@ -48,28 +48,6 @@ const userDelete = async (id) => {
 };
 
 /**
- * @method findMany: A method to get all users
- */
-const findMany = async () => {
-  let users = false;
-  try {
-    await User.find()
-      .then((res) => {
-        if (res && res.length > 0) {
-          users = JSON.parse(JSON.stringify(res));
-        }
-      })
-      .catch((err) => {
-        console.log("findMany-users", err);
-      });
-    return users;
-  } catch (err) {
-    console.log("findMany-users", err);
-    return users;
-  }
-};
-
-/**
  * @method create: A method to create user account
  * @param {Object} data user account detail from previous/parent api method
  */
@@ -88,7 +66,7 @@ const create = async (data) => {
       });
     return user;
   } catch (err) {
-    console.log("create-user", err);
+    console.log("create-user-err", err);
     return user;
   }
 };
@@ -112,7 +90,7 @@ const update = async (data) => {
       });
     return user;
   } catch (err) {
-    console.log("update-user", err);
+    console.log("update-user-err", err);
     return user;
   }
 };
@@ -120,7 +98,6 @@ const update = async (data) => {
 module.exports = {
   find,
   userDelete,
-  findMany,
   create,
   update
 };
